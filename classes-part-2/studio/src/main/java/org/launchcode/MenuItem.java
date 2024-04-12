@@ -1,6 +1,7 @@
 package org.launchcode;
 
 public class MenuItem {
+    private String name;
     private double price;
     private String description;
     private String category;
@@ -11,6 +12,32 @@ public class MenuItem {
         this.description = d;
         this.category = c;
         this.isNew = iN;
+    }
+
+    public MenuItem(String name, double price, String description, String category) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.category = category;
+    }
+
+    public MenuItem(String name, double price, String description, String category, boolean isNew) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.category = category;
+        this.isNew = isNew;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                ", isNew=" + isNew +
+                '}';
     }
 
     public void setPrice(double price) {

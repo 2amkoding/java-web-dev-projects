@@ -1,7 +1,27 @@
+import javax.swing.*;//inside menu item
+    private String category;
+    private boolean inStock;
+    private String name;
+    private String description;
+    private boolean vegan;
+    private int spiceLvl;
+    private double price;
+    private date dateAdded;
+    //constructors
+    //setters, getters
 
-//runner class
-//static void main
+//inside Menu Class
 
-//build menuitems objects here
+    //listmenu items;
+    //last updated date;
 
-// use loop to group menuitmes by category
+    //features
+    //add menuitem (if in stock)
+    //remove menuItem
+    //label as newItem if dateAdded <= date
+
+
+
+
+
+
