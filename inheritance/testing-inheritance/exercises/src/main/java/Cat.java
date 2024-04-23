@@ -58,6 +58,7 @@ public class Cat {
         }
 
         hungry = false;
+        System.out.println("Meow-Meow, Thank you");
     }
 
     public String noise () {
