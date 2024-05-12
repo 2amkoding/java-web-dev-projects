@@ -6,13 +6,15 @@
 </head>
 <body>
    <div>
-      <h1>Create Event</h1>
+      <h1>Event Titles</h1>
    </div>
-
+<div>
+   <p th:unless="${events} and ${events.size()}"> No Events!</p>
+</div>
    <div>
       <form method ="post" action="/events/create">
          <input type="text" name="eventName">
-         <input type="submit" value="Create Event">
+         <input type="submit" value="CreateEvent">
       </form>
    </div>
 </body>
