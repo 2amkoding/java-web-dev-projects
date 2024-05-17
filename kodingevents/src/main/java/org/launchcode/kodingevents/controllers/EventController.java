@@ -1,5 +1,6 @@
 package org.launchcode.kodingevents.controllers;
 
+import org.launchcode.kodingevents.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,27 +19,27 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    private static HashMap<String, String> events = new HashMap<>();
+    private static List<Event> events = new ArrayList<>();
 
     @GetMapping
     public String displayAllEvents(Model model) {
-        events.put("Menteaship","A fun meetup for connecting with mentors");
-        events.put("Code With Pride","A fun meetup sponsored by LaunchCode");
-        events.put("Javascripty", "An imaginary meetup for Javascript developers");
+//        events.put("Menteaship","A fun meetup for connecting with mentors");
+//        events.put("Code With Pride","A fun meetup sponsored by LaunchCode");
+//        events.put("Javascripty", "An imaginary meetup for Javascript developers");
 
-        model.addAttribute("title", "all Events");
+        model.addAttribute("title", "All Events");
         model.addAttribute("events", events);
         return "events/index";
     }
 
     @GetMapping("create")
-    public String renderCreateEvenForm() {
-    //    model.addAttribute("title", "Create Event")
+    public String renderCreateEvenForm(Model model) {
+        model.addAttribute("title", "Create Event");
         return "events/create";
     }
     @PostMapping("create")
-    public String createEvent(@RequestParam String eventName, String eventDescription) {
-        events.put(eventName,eventDescription);
+    public String createEvent(@RequestParam String eventName, @RequestParam String eventDescription) {
+        events.add(new Event (eventName, eventDescription));
         return "redirect:/events";
     }
 
