@@ -5,12 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<div>
+
     <h3>Events</h3>
-    <ol>
-        <li th:each="event : ${events}" th:text="${event}"></li>
-    </ol>
-</div>
+
+
+    <ul th:each="event : ${events}">
+
+
+        <li th:text="${event.name}"></li>
+
+    </ul>
+
+    <p th:unless="${events} and ${events.size()}">No events!</p>
+
+
 
 </body>
 </html>
