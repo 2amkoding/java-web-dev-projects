@@ -4,10 +4,7 @@ import org.launchcode.codingeventsv3.data.EventData;
 import org.launchcode.codingeventsv3.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +27,8 @@ public class EventController {
 
 
     @PostMapping("create")
-    public String createEventHandler(@RequestParam String eventName, @RequestParam String eventDescription) {
-        EventData.add(new Event(eventName, eventDescription));
+    public String createEventHandler(@ModelAttribute Event newEvent) {
+        EventData.add(newEvent);
         return "redirect:/events";
     }
 
